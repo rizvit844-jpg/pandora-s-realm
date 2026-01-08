@@ -13,6 +13,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        serif: ["Cormorant Garamond", "Georgia", "serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -57,6 +61,24 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Custom theme colors
+        orb: {
+          DEFAULT: "hsl(var(--orb-glow))",
+          glow: "hsl(190 85% 60% / 0.3)",
+        },
+        torch: {
+          DEFAULT: "hsl(var(--torch-gold))",
+          glow: "hsl(38 85% 55% / 0.2)",
+        },
+        stone: {
+          ancient: "hsl(var(--ancient-stone))",
+        },
+        shadow: {
+          deep: "hsl(var(--deep-shadow))",
+        },
+        mist: {
+          DEFAULT: "hsl(var(--mist))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -65,25 +87,38 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "float-up": {
+          "0%, 100%": { transform: "translateY(0)", opacity: "0.6" },
+          "50%": { transform: "translateY(-10px)", opacity: "1" },
+        },
+        "slow-pulse": {
+          "0%, 100%": { opacity: "0.4" },
+          "50%": { opacity: "0.7" },
+        },
+        "drift": {
+          "0%, 100%": { transform: "translateX(0) translateY(0)" },
+          "25%": { transform: "translateX(10px) translateY(-5px)" },
+          "50%": { transform: "translateX(5px) translateY(5px)" },
+          "75%": { transform: "translateX(-5px) translateY(-3px)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "float-up": "float-up 3s ease-in-out infinite",
+        "slow-pulse": "slow-pulse 4s ease-in-out infinite",
+        "drift": "drift 20s ease-in-out infinite",
+      },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
   },
